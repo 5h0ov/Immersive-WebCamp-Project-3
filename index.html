@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="scrollbar.css">
+  </head>
+  <body>
+    <main class="flex flex-col gap-5 my-10 max-w-[500px] mx-auto">
+      <div class="flex justify-between text-2xl font-semibold">
+        <h1 id="title" class="another-class font-mono">FLASHCARD APP</h1>
+        <span id="score-card" class="font-semibold hidden"></span>
+      </div>
+      <div id="card-container" class="space-y-3"></div>
+      <div id="flashcards" class="space-y-3 hidden"></div>
+
+      <button
+        onclick="handleStart()"
+        id="start-button"
+        class="px-2 py-5 bg-green-500 transition duration-300 text-2xl rounded-md font-bold text-white hover:bg-green-600"
+      >
+        Start
+      </button>
+      <button
+        onclick="handleReset()"
+        id="reset-button"
+        class="px-2 py-5 bg-red-500 hover:bg-red-600 transition duration-300 text-2xl rounded-md font-bold text-white hidden"
+      >
+        Reset
+      </button>
+      <button
+        onclick="handleDone()"
+        id="done-button"
+        class="px-2 py-5 bg-blue-500 hover:bg-blue-600 transition duration-300 text-2xl rounded-md font-bold text-white hidden"
+      >
+        Done
+      </button>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
