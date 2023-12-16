@@ -91,6 +91,7 @@ const handleReset = () => {
   resetButton.classList.add('hidden');
   doneButton.classList.add('hidden');
   score.textContent = "Score: "+ flashcardsData.length;
+  score.classList.add('hidden');
 };
 
 const handleDone = () => {
