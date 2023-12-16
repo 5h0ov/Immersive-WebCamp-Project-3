@@ -39,9 +39,10 @@ const resetButton = document.getElementById('reset-button');
 const doneButton = document.getElementById('done-button');
 
 var score = document.getElementById('score-card');
+var incorrect = document.getElementById('incorrect-card');
 const flashcardsContainer = document.getElementById('flashcards');
 let clickedFlashcards = [];
-
+let c=0;
 
 const handleStart = () => {
   flashcardsContainer.innerHTML = '';
@@ -57,20 +58,23 @@ const handleStart = () => {
     
     //* Card click event
     cardElement.addEventListener('click', () => {
-      console.log(item.word);
-      cardElement.classList.add('border-red-500', 'hover:bg-red-100');
-      cardElement.classList.remove('correct');
-      cardElement.innerText = item.meaning;
-      clickedFlashcards.push(item);
-      updateScore(p);
-      p--;
-    });
+      if(cardElement.classList.contains('correct')){
+        console.log(item.word);
+        cardElement.classList.add('border-red-500', 'hover:bg-red-100');
+        cardElement.classList.remove('correct');
+        cardElement.innerText = item.meaning;
+        clickedFlashcards.push(item);
+        updateScore(p);
+        p--;
+        c++;
+    }});
   });
 
   score.classList.remove('hidden');
   resetButton.classList.remove('hidden');
   doneButton.classList.remove('hidden');
   startButton.classList.add('hidden');
+  incorrect.classList.add('hidden');
   
   score.textContent = "SCORE: "+ flashcardsData.length;
 };
@@ -100,8 +104,9 @@ const handleDone = () => {
     flashcardsContainer.appendChild(flashcard);
   });
   clickedFlashcards = [];
-
-
+  
+  incorrect.textContent = "You got "+ c +"/"+ flashcardsData.length +" incorrect!";
+  incorrect.classList.remove('hidden');
   startButton.classList.remove('hidden');
   resetButton.classList.add('hidden');
   doneButton.classList.add('hidden');
