@@ -46,6 +46,7 @@ let c=0;
 
 const handleStart = () => {
   flashcardsContainer.innerHTML = '';
+  c=0;
 
   flashcardsData.forEach((item) => {
     //* Card add section
@@ -85,7 +86,8 @@ function updateScore(point) {
 
 const handleReset = () => {
   cardContainer.innerHTML = '';
-
+  c=0;
+  
   clickedFlashcards = [];
   startButton.classList.remove('hidden');
   resetButton.classList.add('hidden');
