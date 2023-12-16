@@ -102,7 +102,7 @@ const handleDone = () => {
 
    clickedFlashcards.forEach(item => { 
     let flashcard = document.createElement('div');
-    flashcard.className = 'border-2 border-red-500 rounded-md p-5 h-full font-semibold text-md';
+    flashcard.className = 'border-2 bg-red-100 border-red-500 rounded-md p-5 h-full font-semibold text-md';
     flashcard.innerText = item.word + ":  " + item.meaning;
     flashcardsContainer.appendChild(flashcard);
   });
